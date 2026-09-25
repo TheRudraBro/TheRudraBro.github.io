@@ -1,0 +1,1799 @@
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rudra Mojumder — Full Stack Developer</title>
+    <link rel="icon" type="image/x-icon" href="Images/r-logo.png" />
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="Interface/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&amp;family=Outfit:wght@200..900&amp;family=JetBrains+Mono:wght@300..700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Fraunces", "serif"],
+              sans: ["Outfit", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+    </style>
+    <script
+      src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full">
+    <div class="ambient-bg"></div>
+    <div class="grid-overlay"></div>
+    <canvas id="particles-canvas"></canvas>
+    <div class="portfolio-wrapper">
+      <!-- Decorative blobs -->
+      <div
+        class="blob"
+        style="
+          width: 500px;
+          height: 500px;
+          background: #10a373;
+          top: 10%;
+          left: -10%;
+        "
+      ></div>
+      <div
+        class="blob"
+        style="
+          width: 400px;
+          height: 400px;
+          background: #6ee7a5;
+          top: 60%;
+          right: -10%;
+          opacity: 0.2;
+        "
+      ></div>
+      <div class="content-layer">
+        <!-- NAVBAR -->
+        <header
+          id="navbar"
+          class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4"
+        >
+          <nav class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3 group">
+              <div
+                class="relative w-11 h-11 rounded-xl flex items-center justify-center overflow-hidden"
+                style="
+                  background: linear-gradient(135deg, #1f5c40, #0a241a);
+                  border: 1px solid rgba(110, 231, 165, 0.3);
+                "
+              >
+                <i
+                  class="fa-solid fa-leaf text-emerald-300 text-lg group-hover:rotate-12 transition-transform duration-500"
+                ></i>
+                <div
+                  class="absolute inset-0 rounded-xl"
+                  style="box-shadow: inset 0 0 20px rgba(110, 231, 165, 0.2)"
+                ></div>
+              </div>
+              <div class="leading-tight">
+                <div
+                  class="font-display font-semibold text-lg text-white tracking-tight"
+                >
+                  Rudra<span class="text-emerald-400">.</span>
+                </div>
+                <div
+                  class="text-[10px] font-mono tracking-[0.2em] text-emerald-400/70 uppercase"
+                >
+                  Full Stack Developer
+                </div>
+              </div></a
+            >
+            <ul
+              class="hidden lg:flex items-center gap-9 text-sm font-medium text-white/80"
+            >
+              <li><a href="#home" class="nav-link active">Home</a></li>
+              <li><a href="#about" class="nav-link">About</a></li>
+              <li><a href="#projects" class="nav-link">Projects</a></li>
+              <li><a href="#research" class="nav-link">Research</a></li>
+              <li><a href="#education" class="nav-link">Education</a></li>
+              <li><a href="#experience" class="nav-link">Experience</a></li>
+              <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hidden lg:flex items-center gap-3">
+              <a href="#contact" class="btn-primary text-sm py-2.5 px-5">
+                <i class="fa-solid fa-paper-plane text-xs"></i> Let's Talk
+              </a>
+            </div>
+            <button
+              id="menu-toggle"
+              class="lg:hidden w-11 h-11 rounded-xl flex items-center justify-center glass"
+            >
+              <i class="fa-solid fa-bars text-emerald-300"></i>
+            </button>
+          </nav>
+          <div
+            id="mobile-menu"
+            class="lg:hidden mt-4 glass-strong mx-2 rounded-2xl"
+          >
+            <ul class="flex flex-col p-4 gap-1 text-white/90">
+              <li>
+                <a
+                  href="#home"
+                  class="block py-3 px-4 rounded-lg hover:bg-emerald-500/10"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="block py-3 px-4 rounded-lg hover:bg-emerald-500/10"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  class="block py-3 px-4 rounded-lg hover:bg-emerald-500/10"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#research"
+                  class="block py-3 px-4 rounded-lg hover:bg-emerald-500/10"
+                  >Research</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#education"
+                  class="block py-3 px-4 rounded-lg hover:bg-emerald-500/10"
+                  >Education</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#experience"
+                  class="block py-3 px-4 rounded-lg hover:bg-emerald-500/10"
+                  >Experience</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="block py-3 px-4 rounded-lg hover:bg-emerald-500/10"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+        </header>
+
+        <!-- HERO -->
+        <section
+          id="home"
+          class="relative min-h-screen pt-32 pb-20 px-6 md:px-12 flex items-center"
+        >
+          <div
+            class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center"
+          >
+            <div class="lg:col-span-7 reveal">
+              <div class="section-tag mb-8">
+                <span class="dot"></span>
+                <span>Available for Creative Web Application</span>
+              </div>
+              <h1
+                class="font-display font-light text-5xl md:text-7xl lg:text-[88px] leading-[0.95] tracking-tight mb-6"
+              >
+                <span class="block text-white/90">Bridging</span>
+                <span class="block italic hero-gradient-text font-normal"
+                  >code &amp;</span
+                >
+                <span class="block text-white/90">innovation.</span>
+              </h1>
+              <div class="mb-4 text-emerald-300 font-mono text-sm md:text-base">
+                <span class="text-emerald-400">&lt;</span>
+                <span id="typing-text"></span>
+                <span class="typing-cursor"></span>
+                <span class="text-emerald-400">/&gt;</span>
+              </div>
+              <p
+                id="hero-intro-text"
+                class="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl mb-10"
+              >
+                I'm
+                <span class="text-emerald-300 font-medium" id="hero-name-inline"
+                  >Rudra Mojumder</span
+                >
+                — a Full Stack Developer building scalable web applications. I
+                bridge the gap between design and functionality to create
+                seamless user experiences.
+              </p>
+
+              <!-- Button modifications here (CV Button Added) -->
+              <div class="flex flex-wrap gap-4 mb-14">
+                <a href="#research" class="btn-primary">
+                  <i class="fa-solid fa-flask-vial"></i> Explore Research
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#projects" class="btn-ghost">
+                  <i class="fa-solid fa-folder-open"></i> View Projects
+                </a>
+                <a
+                  href="Resume/MrRudraMojumder.pdf"
+                  download="MrRudraMojumder_Resume.pdf"
+                  class="btn-primary"
+                  style="background-color: #10a373"
+                >
+                  <i class="fa-solid fa-download"></i> Download CV
+                </a>
+              </div>
+
+              <!-- Stats -->
+              <div class="grid grid-cols-3 gap-4 max-w-xl">
+                <div class="stat-card glass p-5">
+                  <div
+                    class="font-display text-3xl md:text-4xl accent-text font-medium"
+                  >
+                    2+
+                  </div>
+                  <div
+                    class="text-xs text-white/60 mt-1 font-mono uppercase tracking-wider"
+                  >
+                    years experience
+                  </div>
+                </div>
+                <div class="stat-card glass p-5">
+                  <div
+                    class="font-display text-3xl md:text-4xl accent-text font-medium"
+                  >
+                    12+
+                  </div>
+                  <div
+                    class="text-xs text-white/60 mt-1 font-mono uppercase tracking-wider"
+                  >
+                    Projects
+                  </div>
+                </div>
+                <div class="stat-card glass p-5">
+                  <div
+                    class="font-display text-3xl md:text-4xl accent-text font-medium"
+                  >
+                    ∞
+                  </div>
+                  <div
+                    class="text-xs text-white/60 mt-1 font-mono uppercase tracking-wider"
+                  >
+                    Learning
+                  </div>
+                </div>
+              </div>
+              <!-- Socials -->
+              <div class="flex items-center gap-4 mt-12">
+                <div class="h-px w-12 bg-emerald-400/30"></div>
+                <span
+                  class="text-xs font-mono text-white/50 uppercase tracking-[0.2em]"
+                  >Follow</span
+                >
+                <div class="flex gap-3">
+                  <a
+                    href="https://github.com/TheRudraBro"
+                    target="_blank"
+                    class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-emerald-300 hover:border-emerald-400/40 transition-all"
+                  >
+                    <i class="fa-brands fa-github text-sm"></i
+                  ></a>
+                  <a
+                    href="https://www.linkedin.com/in/mrrudramojumder/"
+                    target="_blank"
+                    class="w-10 h-10 rounded-full glass flex items-center justify-center hover:text-emerald-300 hover:border-emerald-400/40 transition-all"
+                  >
+                    <i class="fa-brands fa-linkedin-in text-sm"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portrait with orbit -->
+            <div
+              class="lg:col-span-5 relative reveal flex items-center justify-center"
+            >
+              <!-- Pura block eksathe animate hobe -->
+              <div class="relative w-full max-w-md animated-portrait">
+                <!-- Apnar Custom Image -->
+                <img
+                  src="Images/Rudra.png"
+                  alt="Rudra Mojumder"
+                  class="w-full h-auto drop-shadow-2xl"
+                />
+
+                <!-- Top label (Live) -->
+                <div
+                  class="absolute -top-8 md:top-0 left-0 glass px-3 py-1.5 text-[10px] font-mono tracking-widest text-emerald-300 uppercase flex items-center gap-2"
+                >
+                  <span
+                    class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+                  ></span>
+                  Live • Inventory Mode
+                </div>
+
+                <!-- Bottom label (LAT/LON) -->
+                <div
+                  class="absolute -bottom-8 md:-bottom-12 right-0 glass px-3 py-1.5 text-[10px] font-mono text-emerald-200 z-10"
+                >
+                  Full-Stack Developer
+                </div>
+
+                <!-- Floating info card (Focus) - Ekhon animated div er vitor ache -->
+                <div
+                  class="absolute -bottom-6 -left-2 md:-left-8 glass-strong px-5 py-4 max-w-[200px] z-20"
+                >
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center"
+                    >
+                      <i class="fa-solid fa-earth-asia text-emerald-300"></i>
+                    </div>
+                    <div>
+                      <div
+                        class="text-[10px] font-mono text-white/50 uppercase"
+                      >
+                        Focus
+                      </div>
+                      <div class="text-sm font-medium text-white">
+                        Development &amp; Machine Learning
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scroll cue -->
+          <div
+            class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 text-white/40"
+          >
+            <div class="scroll-indicator"></div>
+            <span class="text-[10px] font-mono uppercase tracking-[0.3em]"
+              >Scroll</span
+            >
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="relative py-24 px-6 md:px-12">
+          <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+              <div class="lg:col-span-5 reveal">
+                <div class="section-tag mb-6">
+                  <span class="dot"></span><span>About Me</span>
+                </div>
+                <h2
+                  class="font-display text-4xl md:text-6xl font-light leading-tight mb-8 text-white"
+                >
+                  A developer with a
+                  <span class="italic accent-text">passion for</span>
+                  innovation.
+                </h2>
+                <!-- About image -->
+
+                <div
+                  class="relative rounded-2xl overflow-hidden aspect-square md:aspect-[4/3] mb-8"
+                  style="
+                    background: linear-gradient(135deg, #0f3326, #1f5c40);
+                    border: 1px solid rgba(110, 231, 165, 0.2);
+                  "
+                >
+                  <svg
+                    viewBox="0 0 400 400"
+                    class="w-full h-full"
+                    preserveAspectRatio="xMidYMid slice"
+                  >
+                    <defs>
+                      <linearGradient id="codeG" x1="0" y1="0" x2="0" y2="1">
+                        <stop
+                          offset="0%"
+                          stop-color="#1f5c40"
+                          stop-opacity="0.2"
+                        />
+                        <stop
+                          offset="100%"
+                          stop-color="#03120d"
+                          stop-opacity="0.8"
+                        />
+                      </linearGradient>
+                    </defs>
+
+                    <!-- Background Tech Grid -->
+                    <g stroke="#6ee7a5" stroke-opacity="0.1" stroke-width="1">
+                      <line x1="0" y1="80" x2="400" y2="80" />
+                      <line x1="0" y1="160" x2="400" y2="160" />
+                      <line x1="0" y1="240" x2="400" y2="240" />
+                      <line x1="0" y1="320" x2="400" y2="320" />
+
+                      <line x1="80" y1="0" x2="80" y2="400" />
+                      <line x1="160" y1="0" x2="160" y2="400" />
+                      <line x1="240" y1="0" x2="240" y2="400" />
+                      <line x1="320" y1="0" x2="320" y2="400" />
+                    </g>
+
+                    <!-- Floating Syntax Elements -->
+                    <text
+                      x="340"
+                      y="90"
+                      font-family="monospace"
+                      font-size="28"
+                      fill="#6ee7a5"
+                      opacity="0.15"
+                      font-weight="bold"
+                    >
+                      { }
+                    </text>
+                    <text
+                      x="30"
+                      y="320"
+                      font-family="monospace"
+                      font-size="32"
+                      fill="#6ee7a5"
+                      opacity="0.15"
+                      font-weight="bold"
+                    >
+                      &lt;/&gt;
+                    </text>
+
+                    <!-- Code Editor Window -->
+                    <rect
+                      x="30"
+                      y="100"
+                      width="340"
+                      height="200"
+                      rx="8"
+                      fill="#03120d"
+                      stroke="#6ee7a5"
+                      stroke-opacity="0.3"
+                      stroke-width="1.5"
+                    />
+
+                    <!-- Editor Top Bar -->
+                    <path
+                      d="M 30 108 Q 30 100 38 100 L 362 100 Q 370 100 370 108 L 370 120 L 30 120 Z"
+                      fill="#0f3326"
+                    />
+
+                    <!-- Mac-style Window Controls -->
+                    <circle
+                      cx="50"
+                      cy="110"
+                      r="4"
+                      fill="#ef4444"
+                      opacity="0.8"
+                    />
+                    <circle
+                      cx="65"
+                      cy="110"
+                      r="4"
+                      fill="#eab308"
+                      opacity="0.8"
+                    />
+                    <circle
+                      cx="80"
+                      cy="110"
+                      r="4"
+                      fill="#22c55e"
+                      opacity="0.8"
+                    />
+
+                    <!-- Actual Code Text -->
+                    <g
+                      font-family="monospace"
+                      font-size="11"
+                      transform="translate(45, 145)"
+                    >
+                      <!-- Line 1 -->
+                      <text y="0" fill="#c678dd">
+                        import
+                        <tspan fill="#e5c07b">{</tspan>
+                        <tspan fill="#61afef">Innovation</tspan>
+                        <tspan fill="#e5c07b">}</tspan>
+                        from
+                        <tspan fill="#98c379">'./future'</tspan>
+                        ;
+                      </text>
+
+                      <!-- Line 2 -->
+                      <text y="25" fill="#c678dd">
+                        const
+                        <tspan fill="#61afef">buildProject</tspan>
+                        =
+                        <tspan fill="#e5c07b">()</tspan>
+                        <tspan fill="#c678dd">=&gt;</tspan>
+                        <tspan fill="#e5c07b">{</tspan>
+                      </text>
+
+                      <!-- Line 3 -->
+                      <text y="45" fill="#c678dd" dx="15">
+                        return
+                        <tspan fill="#56b6c2">(</tspan>
+                      </text>
+
+                      <!-- Line 4 -->
+                      <text y="65" fill="#e06c75" dx="30">
+                        &lt;
+                        <tspan fill="#e06c75">div</tspan>
+                        <tspan fill="#d19a66">className</tspan>
+                        =
+                        <tspan fill="#98c379">"web-dev"</tspan>
+                        &gt;
+                      </text>
+
+                      <!-- Line 5 -->
+                      <text y="85" fill="#abb2bf" dx="45">
+                        websites that behave like software!!
+                      </text>
+
+                      <!-- Line 6 -->
+                      <text y="105" fill="#e06c75" dx="30">
+                        &lt;/
+                        <tspan fill="#e06c75">div</tspan>
+                        &gt;
+                      </text>
+
+                      <!-- Line 7 -->
+                      <text y="125" fill="#56b6c2" dx="15">
+                        )
+                        <tspan fill="#abb2bf">;</tspan>
+                      </text>
+
+                      <!-- Line 8 -->
+                      <text y="145" fill="#e5c07b">
+                        }
+                        <tspan fill="#abb2bf">;</tspan>
+                      </text>
+                    </g>
+                  </svg>
+
+                  <div
+                    class="absolute bottom-4 left-4 right-4 flex justify-between text-[10px] font-mono text-emerald-200/80"
+                  >
+                    <span>SYSTEM ARCHITECTURE · 2026</span>
+                    <span>DEV ENVIRONMENT</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-7 reveal">
+                <p
+                  id="about-paragraph-text"
+                  class="text-lg md:text-xl leading-relaxed text-white/70 mb-6 font-light"
+                >
+                  I'm a developer with a passion for innovation and creating
+                  solutions that make a difference. My work sits at
+                  <span class="text-emerald-300"
+                    >the intersection of technology and creativity</span
+                  >, turning complex datasets into narratives that drive policy
+                  and action.
+                </p>
+                <p class="text-base leading-relaxed text-white/55 mb-12">
+                  Whether I'm developing new features for web applications or
+                  designing user interfaces that are both functional and
+                  aesthetically pleasing, I believe in the power of good design
+                  and thoughtful implementation. Every project is an opportunity
+                  to learn and grow.
+                </p>
+
+                <!-- What I Do -->
+                <h3 class="font-display text-2xl text-white mb-6">
+                  What I Do <span class="text-emerald-400">—</span>
+                </h3>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div class="stat-card glass p-5 group">
+                    <i
+                      class="fa-solid fa-code text-emerald-300 text-xl mb-3 group-hover:scale-110 transition-transform inline-block"
+                    ></i>
+                    <div class="font-medium text-white mb-1">
+                      Web Development
+                    </div>
+                    <div class="text-xs text-white/50">
+                      Responsive &amp; modern web applications
+                    </div>
+                  </div>
+                  <div class="stat-card glass p-5 group">
+                    <i
+                      class="fa-solid fa-server text-emerald-300 text-xl mb-3 group-hover:scale-110 transition-transform inline-block"
+                    ></i>
+                    <div class="font-medium text-white mb-1">
+                      Testing & Debugging
+                    </div>
+                    <div class="text-xs text-white/50">
+                      Unit testing · Integration testing · Debugging
+                    </div>
+                  </div>
+
+                  <div class="stat-card glass p-5 group">
+                    <i
+                      class="fa-solid fa-brain text-emerald-300 text-xl mb-3 group-hover:scale-110 transition-transform inline-block"
+                    ></i>
+                    <div class="font-medium text-white mb-1">
+                      Machine Learning & Data Analysis
+                    </div>
+                    <div class="text-xs text-white/50">
+                      Python · Pandas · Scikit-learn
+                    </div>
+                  </div>
+
+                  <div class="stat-card glass p-5 group">
+                    <i
+                      class="fa-solid fa-plug text-emerald-300 text-xl mb-3 group-hover:scale-110 transition-transform inline-block"
+                    ></i>
+                    <div class="font-medium text-white mb-1">
+                      API Integration
+                    </div>
+                    <div class="text-xs text-white/50">
+                      Third-party services · Data pipelines
+                    </div>
+                  </div>
+
+                  <div class="stat-card glass p-5 group">
+                    <i
+                      class="fa-solid fa-paint-brush text-emerald-300 text-xl mb-3 group-hover:scale-110 transition-transform inline-block"
+                    ></i>
+                    <div class="font-medium text-white mb-1">
+                      UI/UX Implementation
+                    </div>
+                    <div class="text-xs text-white/50">
+                      Responsive · Interactive · Accessible
+                    </div>
+                  </div>
+
+                  <div class="stat-card glass p-5 group">
+                    <i
+                      class="fa-solid fa-tachometer-alt text-emerald-300 text-xl mb-3 group-hover:scale-110 transition-transform inline-block"
+                    ></i>
+                    <div class="font-medium text-white mb-1">
+                      Performance Optimization
+                    </div>
+                    <div class="text-xs text-white/50">
+                      SEO · Web performance · Core Web Vitals
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="relative py-24 px-6 md:px-12">
+          <div class="max-w-7xl mx-auto">
+            <div
+              class="flex flex-wrap items-end justify-between gap-6 mb-14 reveal"
+            >
+              <div>
+                <div class="section-tag mb-4">
+                  <span class="dot"></span><span>Field Work</span>
+                </div>
+                <h2
+                  class="font-display text-4xl md:text-6xl font-light text-white"
+                >
+                  Selected <span class="italic accent-text">projects</span>.
+                </h2>
+              </div>
+              <p class="text-white/50 max-w-md text-sm">
+                Showcasing my work in web development, research, and fieldwork.
+              </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8" id="projects-grid"></div>
+
+            <!-- View All Button Added Here -->
+            <div class="flex justify-center mt-10">
+              <button
+                id="view-all-projects-btn"
+                class="btn-ghost border border-emerald-400/20 text-emerald-300 px-6 py-2 rounded-xl hover:bg-emerald-500/10 transition"
+              >
+                View All Projects <i class="fa-solid fa-arrow-down ml-2"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section id="research" class="relative py-24 px-6 md:px-12">
+          <div class="max-w-7xl mx-auto">
+            <div class="text-center reveal mb-10">
+              <div class="section-tag mb-5 mx-auto">
+                <span class="dot"></span><span>Publications</span>
+              </div>
+              <h2
+                class="font-display text-4xl md:text-6xl font-light text-white mb-4"
+              >
+                Research <span class="italic accent-text">papers</span>.
+              </h2>
+              <p class="text-white/55 max-w-2xl mx-auto">
+                Peer-reviewed work spanning climate change, GIS, remote sensing,
+                and sustainability science.
+              </p>
+            </div>
+            <div
+              class="flex flex-wrap justify-center gap-2 mb-12 reveal"
+              id="filter-bar"
+            >
+              <button class="filter-chip active" data-filter="all">All</button>
+              <button class="filter-chip" data-filter="Climate">
+                Climate Change
+              </button>
+              <button class="filter-chip" data-filter="GIS">GIS</button>
+              <button class="filter-chip" data-filter="Sustainability">
+                Sustainability
+              </button>
+              <button class="filter-chip" data-filter="Remote">
+                Remote Sensing
+              </button>
+              <button class="filter-chip" data-filter="Environment">
+                Environment
+              </button>
+            </div>
+            <div
+              class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              id="research-grid"
+            ></div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="relative py-24 px-6 md:px-12">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center reveal mb-16">
+              <div class="section-tag mb-5 mx-auto">
+                <span class="dot"></span><span>Academic Journey</span>
+              </div>
+              <h2
+                class="font-display text-4xl md:text-6xl font-light text-white"
+              >
+                Education <span class="italic accent-text">timeline</span>.
+              </h2>
+            </div>
+            <div class="relative">
+              <div class="timeline-line"></div>
+              <!-- Entry 1 -->
+              <div class="relative grid md:grid-cols-2 gap-6 mb-12 reveal">
+                <div class="md:text-right md:pr-12 pl-14 md:pl-0">
+                  <div class="glass p-6">
+                    <div class="text-xs font-mono text-emerald-400 mb-2">
+                      2023 — PRESENT
+                    </div>
+                    <h3 class="font-display text-2xl text-white mb-2">
+                      BSc in Computer Science And Engineering
+                    </h3>
+                    <div class="text-white/60 text-sm mb-3">
+                      <i
+                        class="fa-solid fa-building-columns mr-2 text-emerald-300"
+                      ></i
+                      >Bangladesh University of Business and Technology
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                      Currently pursuing a BSc in Computer Science and
+                      Engineering with a focus on software development, data
+                      structures, and algorithms.
+                    </p>
+                    <div class="mt-4 flex md:justify-end gap-2">
+                      <span
+                        class="px-3 py-1 text-[10px] font-mono rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300"
+                        >LEARNING</span
+                      >
+                      <span
+                        class="px-3 py-1 text-[10px] font-mono rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300"
+                        >ONGOING</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-6 timeline-node"
+                ></div>
+              </div>
+              <!-- Entry 2 -->
+              <div class="relative grid md:grid-cols-2 gap-6 mb-12 reveal">
+                <div class="md:col-start-2 md:pl-12 pl-14">
+                  <div class="glass p-6">
+                    <div class="text-xs font-mono text-emerald-400 mb-2">
+                      2021 — 2022
+                    </div>
+                    <h3 class="font-display text-2xl text-white mb-2">
+                      Higher Secondary Certificate
+                    </h3>
+                    <div class="text-white/60 text-sm mb-3">
+                      <i
+                        class="fa-solid fa-building-columns mr-2 text-emerald-300"
+                      ></i
+                      >Narsingdi Public College
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                      Completed HSC with a strong foundation in Science and
+                      Mathematics.
+                    </p>
+                    <div class="mt-4 flex gap-2">
+                      <span
+                        class="px-3 py-1 text-[10px] font-mono rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300"
+                        >FOUNDATION</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-6 timeline-node"
+                ></div>
+              </div>
+              <!-- Entry 3 -->
+              <div class="relative grid md:grid-cols-2 gap-6 reveal">
+                <div class="md:text-right md:pr-12 pl-14 md:pl-0">
+                  <div class="glass p-6">
+                    <div class="text-xs font-mono text-emerald-400 mb-2">
+                      2019 — 2020
+                    </div>
+                    <h3 class="font-display text-2xl text-white mb-2">
+                      Secondary Certificate
+                    </h3>
+                    <div class="text-white/60 text-sm mb-3">
+                      <i
+                        class="fa-solid fa-building-columns mr-2 text-emerald-300"
+                      ></i
+                      >Bibirhat Rashidia High School
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed">
+                      Completed secondary education with a focus on science and
+                      mathematics.
+                    </p>
+                    <div class="mt-4 flex md:justify-end gap-2">
+                      <span
+                        class="px-3 py-1 text-[10px] font-mono rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300"
+                        >SCIENCE</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-6 timeline-node"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="experience" class="relative py-24 px-6 md:px-12">
+          <div class="max-w-7xl mx-auto">
+            <div class="text-center reveal mb-16">
+              <div class="section-tag mb-5 mx-auto">
+                <span class="dot"></span><span>Technical Arsenal</span>
+              </div>
+              <h2
+                class="font-display text-4xl md:text-6xl font-light text-white"
+              >
+                Skills &amp; <span class="italic accent-text">expertise</span>.
+              </h2>
+            </div>
+            <div
+              class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              id="skills-grid"
+            ></div>
+          </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section class="relative py-24 px-6 md:px-12">
+          <div class="max-w-7xl mx-auto">
+            <div
+              class="flex flex-wrap items-end justify-between gap-6 mb-14 reveal"
+            >
+              <div>
+                <div class="section-tag mb-4">
+                  <span class="dot"></span><span>Credentials</span>
+                </div>
+                <h2
+                  class="font-display text-4xl md:text-6xl font-light text-white"
+                >
+                  Experience &amp;
+                  <span class="italic accent-text">Certifications</span>.
+                </h2>
+              </div>
+              <p class="text-white/50 max-w-md text-sm">
+                Showcasing my professional experience and certifications that
+                validate my skills and expertise.
+              </p>
+            </div>
+            <div
+              class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              id="cert-grid"
+            ></div>
+          </div>
+        </section>
+
+        <!-- CONFERENCES -->
+        <section class="relative py-24 px-6 md:px-12">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center reveal mb-14">
+              <div class="section-tag mb-5 mx-auto">
+                <span class="dot"></span><span>Academic Events</span>
+              </div>
+              <h2
+                class="font-display text-4xl md:text-6xl font-light text-white"
+              >
+                Conferences &amp;
+                <span class="italic accent-text">seminars</span>.
+              </h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 reveal">
+              <div class="glass-strong p-8 relative overflow-hidden group">
+                <div
+                  class="absolute top-4 right-4 px-3 py-1 text-[10px] font-mono rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300"
+                >
+                  <i class="fa-solid fa-certificate mr-1"></i> PARTICIPANT
+                </div>
+                <i
+                  class="fa-solid fa-users-rectangle text-5xl text-emerald-400/20 mb-6 group-hover:text-emerald-400/40 transition-colors"
+                ></i>
+                <div class="text-xs font-mono text-emerald-400 mb-2">
+                  MARCH 2026 · DHAKA
+                </div>
+                <h3 class="font-display text-2xl text-white mb-3">
+                  National Debate Workshop
+                </h3>
+                <p class="text-white/60 text-sm leading-relaxed mb-5">
+                  Engaging in national debate workshops and competitions to
+                  enhance critical thinking and public speaking skills.
+                </p>
+                <div
+                  class="flex items-center gap-4 text-xs text-white/50 font-mono"
+                >
+                  <span
+                    ><i
+                      class="fa-solid fa-location-dot mr-1 text-emerald-300"
+                    ></i
+                    >BUBT International Auditorium</span
+                  >
+                  <span
+                    ><i class="fa-solid fa-calendar mr-1 text-emerald-300"></i>1
+                    Days</span
+                  >
+                </div>
+              </div>
+              <div class="glass-strong p-8 relative overflow-hidden group">
+                <div
+                  class="absolute top-4 right-4 px-3 py-1 text-[10px] font-mono rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300"
+                >
+                  <i class="fa-solid fa-certificate mr-1"></i> PARTICIPANT
+                </div>
+                <i
+                  class="fa-solid fa-chalkboard-user text-5xl text-emerald-400/20 mb-6 group-hover:text-emerald-400/40 transition-colors"
+                ></i>
+                <div class="text-xs font-mono text-emerald-400 mb-2">
+                  May 2026 · Dhaka
+                </div>
+                <h3 class="font-display text-2xl text-white mb-3">
+                  Human Computer Interaction
+                </h3>
+                <p class="text-white/60 text-sm leading-relaxed mb-5">
+                  Investigating the relationship between humans and computers in
+                  the design of interactive systems.
+                </p>
+                <div
+                  class="flex items-center gap-4 text-xs text-white/50 font-mono"
+                >
+                  <span
+                    ><i
+                      class="fa-solid fa-location-dot mr-1 text-emerald-300"
+                    ></i
+                    >BUBT International Auditorium</span
+                  >
+                  <span
+                    ><i class="fa-solid fa-calendar mr-1 text-emerald-300"></i>1
+                    Days</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- LANGUAGE / IELTS (Class e hidden add kora hoyeche) -->
+        <section class="hidden relative py-24 px-6 md:px-12">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center reveal mb-16">
+              <div class="section-tag mb-5 mx-auto">
+                <span class="dot"></span><span>IELTS Proficiency</span>
+              </div>
+              <h2
+                class="font-display text-4xl md:text-6xl font-light text-white"
+              >
+                Language <span class="italic accent-text">mastery</span>.
+              </h2>
+            </div>
+            <svg width="0" height="0">
+              <defs>
+                <lineargradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#6ee7a5" />
+                  <stop offset="100%" stop-color="#34d399" />
+                </lineargradient>
+              </defs>
+            </svg>
+            <div
+              class="grid grid-cols-2 md:grid-cols-4 gap-6"
+              id="ielts-grid"
+            ></div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="relative py-24 px-6 md:px-12">
+          <div class="max-w-5xl mx-auto">
+            <div
+              class="glass-strong p-10 md:p-16 relative overflow-hidden reveal"
+            >
+              <div
+                class="absolute -top-20 -right-20 w-72 h-72 rounded-full"
+                style="
+                  background: radial-gradient(
+                    circle,
+                    rgba(110, 231, 165, 0.2),
+                    transparent 70%
+                  );
+                "
+              ></div>
+              <div class="section-tag mb-6">
+                <span class="dot"></span><span>Get In Touch</span>
+              </div>
+              <h2
+                class="font-display text-4xl md:text-6xl font-light text-white mb-4 leading-tight"
+              >
+                Let's collaborate on the
+                <span class="italic accent-text">next breakthrough</span>.
+              </h2>
+              <p class="text-white/55 max-w-xl mb-10">
+                Open to research partnerships, consulting, guest lectures, and
+                PhD opportunities in environmental and climate science.
+              </p>
+              <div class="grid md:grid-cols-3 gap-4 mb-10">
+                <a
+                  href="mailto:r17.gfx@gmail.com"
+                  id="contact-email-card"
+                  class="stat-card glass p-5 flex items-center gap-4"
+                >
+                  <div
+                    class="w-11 h-11 rounded-full bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300"
+                  >
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div>
+                    <div class="text-[10px] font-mono text-white/50 uppercase">
+                      Email
+                    </div>
+                    <div
+                      class="text-sm text-white font-medium"
+                      id="contact-email-text"
+                    >
+                      r17.gfx@gmail.com
+                    </div>
+                  </div></a
+                >
+                <a
+                  href="tel:+880"
+                  class="stat-card glass p-5 flex items-center gap-4"
+                >
+                  <div
+                    class="w-11 h-11 rounded-full bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300"
+                  >
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <div class="text-[10px] font-mono text-white/50 uppercase">
+                      Phone
+                    </div>
+                    <div
+                      class="text-sm text-white font-medium"
+                      id="contact-phone-text"
+                    >
+                      +8801568931456
+                    </div>
+                  </div></a
+                >
+                <div class="stat-card glass p-5 flex items-center gap-4">
+                  <div
+                    class="w-11 h-11 rounded-full bg-emerald-500/15 border border-emerald-400/30 flex items-center justify-center text-emerald-300"
+                  >
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <div class="text-[10px] font-mono text-white/50 uppercase">
+                      Location
+                    </div>
+                    <div
+                      class="text-sm text-white font-medium"
+                      id="contact-location-text"
+                    >
+                      Dhaka, Bangladesh
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Advanced Client Questionnaire Form -->
+              <!-- Advanced Client Questionnaire Form -->
+              <form id="contact-form" class="grid md:grid-cols-2 gap-6 mt-6">
+                <!-- Web3Forms Access Key (Hidden) -->
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="a95f6be7-fa80-4134-a192-47d5eb1edb41"
+                />
+
+                <!-- Contact Info -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm text-white/70 mb-2"
+                    >Your Name *</label
+                  >
+                  <input
+                    name="Client_Name"
+                    type="text"
+                    placeholder="e.g. John Doe"
+                    required
+                    class="w-full bg-white/5 border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition"
+                  />
+                </div>
+
+                <div class="md:col-span-2">
+                  <label class="block text-sm text-white/70 mb-2"
+                    >Your Email Address *</label
+                  >
+                  <input
+                    name="Client_Email"
+                    type="email"
+                    placeholder="e.g. email@example.com"
+                    required
+                    class="w-full bg-white/5 border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition"
+                  />
+                </div>
+
+                <div class="md:col-span-2">
+                  <label class="block text-sm text-white/70 mb-2"
+                    >Your Contact Number</label
+                  >
+                  <input
+                    name="Client_Phone"
+                    type="text"
+                    placeholder="e.g. +880..."
+                    required
+                    class="w-full bg-white/5 border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition"
+                  />
+                </div>
+
+                <!-- Project Type -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm text-white/70 mb-2"
+                    >What type of website or web application do you need?
+                    *</label
+                  >
+                  <select
+                    name="Project_Type"
+                    required
+                    class="w-full bg-[#0a241a] border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white focus:outline-none focus:border-emerald-400/60 transition appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled selected>
+                      Select an option...
+                    </option>
+                    <option value="E-commerce Website">
+                      1. E-commerce Website
+                    </option>
+                    <option value="Portfolio Website">
+                      2. Portfolio Website
+                    </option>
+                    <option value="Blog">3. Blog</option>
+                    <option value="Business/Corporate Website">
+                      4. Business/Corporate Website
+                    </option>
+                    <option value="Web Application">
+                      5. Web Application (SaaS, internal tool, etc.)
+                    </option>
+                    <option value="Landing Page">6. Landing Page</option>
+                    <option value="Other">7. Other</option>
+                  </select>
+                </div>
+
+                <!-- Main Goal -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm text-white/70 mb-2"
+                    >Briefly describe the main goal or purpose of your
+                    website/application. *</label
+                  >
+                  <textarea
+                    name="Project_Goal"
+                    rows="4"
+                    placeholder="Long answer text"
+                    required
+                    class="w-full bg-white/5 border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition resize-none"
+                  ></textarea>
+                </div>
+
+                <!-- Budget -->
+                <div>
+                  <label class="block text-sm text-white/70 mb-2"
+                    >What is your estimated budget for this project? *</label
+                  >
+                  <select
+                    name="Estimated_Budget"
+                    required
+                    class="w-full bg-[#0a241a] border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white focus:outline-none focus:border-emerald-400/60 transition appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled selected>Select budget...</option>
+                    <option value="Under $1,000">Under $1,000</option>
+                    <option value="$1,000 - $5,000">$1,000 - $5,000</option>
+                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                    <option value="Over $25,000">Over $25,000</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                </div>
+
+                <!-- Completion Date -->
+                <div>
+                  <label class="block text-sm text-white/70 mb-2"
+                    >What is your desired completion date for this project?
+                    *</label
+                  >
+                  <input
+                    name="Desired_Completion_Date"
+                    type="date"
+                    required
+                    class="w-full bg-white/5 border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition [color-scheme:dark]"
+                  />
+                </div>
+
+                <!-- Design Preferences -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm text-white/70 mb-2"
+                    >Do you have any design preferences or examples of websites
+                    you like?</label
+                  >
+                  <input
+                    name="Design_Preferences"
+                    type="text"
+                    placeholder="Paste website links or describe your preference"
+                    class="w-full bg-white/5 border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition"
+                  />
+                </div>
+
+                <!-- Best Time to Contact -->
+                <div class="md:col-span-2">
+                  <label class="block text-sm text-white/70 mb-2"
+                    >Best time to contact you for a consultation: *</label
+                  >
+                  <input
+                    name="Best_Time_To_Contact"
+                    type="datetime-local"
+                    required
+                    class="w-full bg-white/5 border border-emerald-400/20 rounded-xl px-5 py-3.5 text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition [color-scheme:dark]"
+                  />
+                </div>
+
+                <!-- Submit Button -->
+                <div
+                  class="md:col-span-2 flex flex-wrap items-center justify-between gap-4 mt-4"
+                >
+                  <button
+                    type="submit"
+                    id="form-submit-btn"
+                    class="btn-primary w-full md:w-auto px-8"
+                  >
+                    <i class="fa-solid fa-paper-plane"></i> Submit Project
+                    Details
+                  </button>
+                </div>
+              </form>
+
+              <!-- Submit Button -->
+              <!-- <div class="md:col-span-2 flex flex-wrap items-center justify-between gap-4 mt-4">
+         <div id="form-msg" class="text-sm text-emerald-300 font-mono"></div>
+         <button type="submit" class="btn-primary w-full md:w-auto px-8"> <i class="fa-solid fa-paper-plane"></i> Submit Project Details </button>
+        </div>
+       </form> -->
+
+              <!-- Direct Email Section (Like your screenshot) -->
+              <!-- Direct Email Section -->
+              <div
+                class="mt-16 text-center border-t border-emerald-400/10 pt-10"
+              >
+                <p class="text-sm text-white/50 font-mono mb-4">
+                  Direct email:
+                </p>
+                <div class="flex items-center justify-center gap-3">
+                  <!-- Color changed to text-emerald-400 to match the theme -->
+                  <span
+                    class="text-2xl md:text-3xl font-serif text-emerald-400 tracking-wide"
+                    id="direct-email"
+                    >r17.gfx@gmail.com</span
+                  >
+                  <button
+                    onclick="copyDirectEmail()"
+                    class="text-emerald-400/50 hover:text-emerald-300 transition cursor-pointer p-2"
+                    title="Copy Email"
+                  >
+                    <i class="fa-regular fa-copy text-xl"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer
+          class="relative py-12 px-6 md:px-12 border-t border-emerald-400/10"
+        >
+          <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
+          >
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-lg flex items-center justify-center"
+                style="
+                  background: linear-gradient(135deg, #1f5c40, #0a241a);
+                  border: 1px solid rgba(110, 231, 165, 0.3);
+                "
+              >
+                <i class="fa-solid fa-leaf text-emerald-300 text-sm"></i>
+              </div>
+              <div class="text-sm text-white/60">
+                © <span id="year"></span> Rudra Mojumder. Crafted with care for
+                the planet.
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <a
+                href="https://www.linkedin.com/in/mrrudramojumder/"
+                target="_blank"
+                class="w-9 h-9 rounded-full glass flex items-center justify-center hover:text-emerald-300 transition"
+              >
+                <i class="fa-brands fa-linkedin-in text-xs"></i
+              ></a>
+              <a
+                href="https://github.com/TheRudraBro"
+                target="_blank"
+                class="w-9 h-9 rounded-full glass flex items-center justify-center hover:text-emerald-300 transition"
+              >
+                <i class="fa-brands fa-github text-xs"></i
+              ></a>
+
+              <a
+                href="#"
+                target="_blank"
+                class="w-9 h-9 rounded-full glass flex items-center justify-center hover:text-emerald-300 transition"
+              >
+                <i class="fa-brands fa-researchgate text-xs"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="w-9 h-9 rounded-full glass flex items-center justify-center hover:text-emerald-300 transition"
+              >
+                <i class="fa-brands fa-orcid text-xs"></i
+              ></a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] glass-strong px-6 py-3 text-emerald-300 text-sm opacity-0 pointer-events-none transition-opacity duration-300"
+    >
+      <i class="fa-solid fa-check-circle mr-2"></i><span id="toast-msg"></span>
+    </div>
+
+    <!-- ===================== FULL AI CHATBOT WIDGET ===================== -->
+    <div
+      id="chatbot-container"
+      class="fixed bottom-6 right-6 z-[100] flex flex-col items-end"
+    >
+      <div
+        id="chat-window"
+        style="display: none"
+        class="w-80 md:w-96 glass-strong rounded-2xl overflow-hidden mb-4 border border-emerald-400/20 shadow-2xl flex-col transition-all duration-300 origin-bottom-right"
+      >
+        <!-- Chat Header -->
+        <div
+          class="bg-gradient-to-r from-[#0f3326] to-[#1f5c40] p-4 flex justify-between items-center border-b border-emerald-400/20"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-400/30"
+            >
+              <i class="fa-solid fa-robot text-emerald-300 text-sm"></i>
+            </div>
+            <div>
+              <div
+                class="font-display text-white font-medium text-sm leading-tight"
+              >
+                Rudra's AI Assistant
+              </div>
+              <div
+                class="text-[10px] text-emerald-300/70 font-mono flex items-center gap-1"
+              >
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+                ></span>
+                Online
+              </div>
+            </div>
+          </div>
+          <button
+            id="close-chat"
+            class="text-white/50 hover:text-white transition p-1 cursor-pointer"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Chat Messages Area (Ekhane kono static button thakbe na) -->
+        <div
+          id="chat-messages"
+          class="h-80 overflow-y-auto p-4 flex flex-col gap-3 scroll-smooth bg-black/10"
+        >
+          <!-- Default Bot Message -->
+          <div
+            class="bg-white/5 border border-emerald-400/10 rounded-xl rounded-tl-none p-3 text-sm text-white/90 self-start max-w-[85%] leading-relaxed"
+          >
+            Hey 👋 I'm <b>Rudra's AI Assistant</b>. 🤖<br /><br />
+            You can ask me about his projects, skills, research or how to get in
+            touch with him.
+          </div>
+        </div>
+
+        <!-- Chat Input Area -->
+        <div
+          class="p-3 border-t border-emerald-400/20 bg-black/40 flex gap-2 items-center"
+        >
+          <input
+            id="chat-input"
+            type="text"
+            placeholder="Type a message..."
+            class="flex-1 bg-white/5 border border-emerald-400/20 rounded-xl px-4 py-2.5 text-sm text-white placeholder-white/40 focus:outline-none focus:border-emerald-400/60 transition"
+          />
+          <button
+            id="send-chat"
+            class="w-10 h-10 rounded-xl bg-[#10a373] text-white hover:bg-emerald-500 border border-emerald-400/30 flex items-center justify-center transition cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Floating Chat Button -->
+      <button
+        id="chat-toggle"
+        class="w-14 h-14 rounded-full bg-[#10a373] hover:bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,163,115,0.4)] flex items-center justify-center text-xl transition-transform hover:scale-105 border border-emerald-400/50 cursor-pointer"
+      >
+        <i class="fa-solid fa-robot"></i>
+      </button>
+    </div>
+
+    <!-- Isolated Chatbot Script -->
+    <script>
+      (function () {
+        const chatToggle = document.getElementById("chat-toggle");
+        const chatWindow = document.getElementById("chat-window");
+        const closeChat = document.getElementById("close-chat");
+        const chatInput = document.getElementById("chat-input");
+        const sendChat = document.getElementById("send-chat");
+        const chatMessages = document.getElementById("chat-messages");
+
+        let chatState = "normal";
+        let clientData = {};
+
+        // Window Toggle
+        function toggleChat() {
+          if (
+            chatWindow.style.display === "none" ||
+            chatWindow.style.display === ""
+          ) {
+            chatWindow.style.display = "flex";
+            // Jokhon first time open hobe, tokhon default option dekhabe
+            if (chatMessages.children.length === 1) {
+              showQuickReplies([
+                "Show me the work",
+                "What can he build?",
+                "How much does a site cost?",
+                "I want to hire him",
+              ]);
+            }
+          } else {
+            chatWindow.style.display = "none";
+          }
+        }
+
+        chatToggle.addEventListener("click", toggleChat);
+        closeChat.addEventListener(
+          "click",
+          () => (chatWindow.style.display = "none"),
+        );
+
+        // Add Message Function
+        function addMessage(text, isUser = false) {
+          const msgDiv = document.createElement("div");
+          msgDiv.className = isUser
+            ? "bg-[#10a373] border border-emerald-400/30 rounded-xl rounded-tr-none p-3 text-sm text-white self-end max-w-[85%] leading-relaxed mt-2"
+            : "bg-white/5 border border-emerald-400/10 rounded-xl rounded-tl-none p-3 text-sm text-white/90 self-start max-w-[85%] leading-relaxed mt-2";
+          msgDiv.innerHTML = text;
+          chatMessages.appendChild(msgDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Show Dynamic Quick Replies (Auto Options)
+        function showQuickReplies(options) {
+          const repliesContainer = document.createElement("div");
+          repliesContainer.className =
+            "flex flex-wrap gap-2 mt-2 mb-2 quick-replies-container";
+
+          options.forEach((opt) => {
+            const btn = document.createElement("button");
+            btn.className =
+              "text-xs border border-emerald-400/40 rounded-full px-3 py-1.5 text-emerald-300 hover:bg-emerald-500/20 transition cursor-pointer bg-black/40";
+            btn.innerText = opt;
+            btn.onclick = function () {
+              chatInput.value = opt;
+              handleSendMessage();
+            };
+            repliesContainer.appendChild(btn);
+          });
+
+          chatMessages.appendChild(repliesContainer);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Remove Old Quick Replies
+        function clearOldReplies() {
+          document
+            .querySelectorAll(".quick-replies-container")
+            .forEach((el) => el.remove());
+        }
+
+        function showTyping() {
+          const typingDiv = document.createElement("div");
+          typingDiv.id = "typing-indicator";
+          typingDiv.className =
+            "bg-white/5 border border-emerald-400/10 rounded-xl rounded-tl-none p-3 text-sm text-white/50 self-start max-w-[85%] flex gap-1 items-center mt-2";
+          typingDiv.innerHTML =
+            '<span class="w-1.5 h-1.5 bg-emerald-400/60 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-emerald-400/60 rounded-full animate-bounce" style="animation-delay: 0.1s"></span><span class="w-1.5 h-1.5 bg-emerald-400/60 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>';
+          chatMessages.appendChild(typingDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTyping() {
+          const indicator = document.getElementById("typing-indicator");
+          if (indicator) indicator.remove();
+        }
+
+        // Bot Smart Logic & Contextual Answers
+        function processBotResponse(text) {
+          const lowerText = text.toLowerCase();
+
+          if (
+            lowerText.includes("show me the work") ||
+            lowerText.includes("project")
+          ) {
+            addMessage("Sure! Let me take you to his projects section. 🚀");
+            setTimeout(() => {
+              const target = document.getElementById("projects");
+              if (target) target.scrollIntoView({ behavior: "smooth" });
+            }, 600);
+            // Related questions after showing projects
+            setTimeout(
+              () =>
+                showQuickReplies([
+                  "What skills does he have?",
+                  "How much does a site cost?",
+                  "I want to hire him",
+                ]),
+              800,
+            );
+          } else if (
+            lowerText.includes("cost") ||
+            lowerText.includes("price") ||
+            lowerText.includes("how much")
+          ) {
+            addMessage(
+              "Projects usually depend on the scope, features, and timeline. Would you like a custom quote?",
+            );
+            // Related questions after price
+            showQuickReplies([
+              "Yes, I want to hire him",
+              "Show me the work",
+              "What can he build?",
+            ]);
+          } else if (
+            lowerText.includes("build") ||
+            lowerText.includes("skill")
+          ) {
+            addMessage(
+              "Rudra builds E-commerce platforms, Portfolios, and SaaS apps using React, Node.js, and Python. Scrolling to his skills now!",
+            );
+            setTimeout(() => {
+              const target = document.getElementById("experience");
+              if (target) target.scrollIntoView({ behavior: "smooth" });
+            }, 600);
+            // Related questions after skills
+            setTimeout(
+              () =>
+                showQuickReplies([
+                  "Show me the work",
+                  "How much does a site cost?",
+                  "I want to hire him",
+                ]),
+              800,
+            );
+          } else if (
+            lowerText.includes("hire") ||
+            lowerText.includes("contact") ||
+            lowerText.includes("yes")
+          ) {
+            chatState = "ask_name";
+            addMessage(
+              "Awesome! Rudra would love to work with you. First, what's your full name?",
+            );
+          } else {
+            // Fallback for "Hi", "Hello" or unknown messages
+            addMessage(
+              "Hello there! 👋 That's a great pleasure to hear from you! <br><br> I am Rudra's AI Assistant. I can help you explore Rudra's portfolio. What would you like to know?",
+            );
+            showQuickReplies([
+              "Show me the work",
+              "What can he build?",
+              "How much does a site cost?",
+              "I want to hire him",
+            ]);
+          }
+        }
+
+        // Lead Generation Flow (With Auto Email Send - FIXED SCOPE)
+        function handleLeadFlow(text) {
+          if (chatState === "ask_name") {
+            clientData.name = text;
+            chatState = "ask_email";
+            addMessage(
+              `Nice to meet you, ${clientData.name}! What's the best email address to reach you at?`,
+            );
+          } else if (chatState === "ask_email") {
+            clientData.email = text;
+            chatState = "ask_budget";
+            addMessage(
+              "Got it. Finally, roughly what is your estimated budget for this project? (e.g. $1000-$5000)",
+            );
+          } else if (chatState === "ask_budget") {
+            clientData.budget = text;
+            chatState = "normal";
+
+            addMessage(
+              `Perfect! I've noted down your details. Rudra will contact you at <b>${clientData.email}</b> soon. Have a great day!`,
+            );
+
+            // 🚀 Web3Forms diye Email-e data pathano
+            const botPayload = {
+              access_key: "a95f6be7-fa80-4134-a192-47d5eb1edb41",
+              subject: "🤖 New Client Lead from Robo Rudra (Chatbot)",
+              Client_Name: clientData.name,
+              Client_Email: clientData.email,
+              Estimated_Budget: clientData.budget,
+            };
+
+            fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(botPayload),
+            })
+              .then((response) => response.json())
+              .then((data) => console.log("Chatbot lead sent to email!", data))
+              .catch((error) =>
+                console.error("Error sending chatbot lead:", error),
+              );
+
+            // Flow complete hobar por abar default options dekhano
+            setTimeout(
+              () =>
+                showQuickReplies([
+                  "Show me the work",
+                  "What can he build?",
+                  "How much does a site cost?",
+                ]),
+              1000,
+            );
+          }
+        }
+
+        // Main Send Function
+        function handleSendMessage() {
+          const text = chatInput.value.trim();
+          if (!text) return;
+
+          chatInput.value = "";
+          clearOldReplies(); // Aager button gulo muche felbe jeno screen clatter na hoy
+
+          addMessage(text, true);
+          showTyping();
+
+          setTimeout(() => {
+            removeTyping();
+            if (chatState !== "normal") {
+              handleLeadFlow(text);
+            } else {
+              processBotResponse(text);
+            }
+          }, 800);
+        }
+
+        sendChat.addEventListener("click", handleSendMessage);
+        chatInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") handleSendMessage();
+        });
+      })();
+    </script>
+
+    <script src="Interface/script.js"></script>
+    <!-- <script src="ChatBot/chatBot.js"></script> -->
+
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9f64e3b0b113a48e',t:'MTc3Nzg3MDI3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
